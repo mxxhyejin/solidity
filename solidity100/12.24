@@ -1,1 +1,161 @@
+// SPDX-License-Identifier: GPL-3.0
 
+pragma solidity >=0.8.2 <0.9.0;
+
+//1
+contract Calculator {
+    function add(uint _a, uint _b) public pure returns(uint) {
+        return _a + _b;
+    }
+
+    function sub(uint _a, uint _b) public pure returns(uint) {
+        return _a - _b;
+    }
+
+    function multiply(uint _a, uint _b) public pure returns(uint) {
+        return _a * _b;
+    }
+
+    function div(uint _a, uint _b) public pure returns(uint) {
+        return _a / _b;
+    }
+
+    function pow(uint _a, uint _b) public pure returns(uint) {
+        return _a ** _b;
+    }
+
+    //2
+
+    function add(uint _a, uint _b) public pure returns(uint) {
+        return _a + _b;
+    }
+
+    function sub(uint _a, uint _b) public pure returns(uint) {
+        return _a - _b;
+    }
+
+    function multiply(uint _a, uint _b) public pure returns(uint) {
+        return _a * _b;
+    }
+
+    function div(uint _a, uint _b) public pure returns(uint) {
+        return _a / _b;
+    }
+
+    //3
+
+    function pow(uint _a) public pure returns(uint) {
+        return _a **2;
+    }
+
+    function square(uint _a) public pure returns(uint) {
+        return _a **3;
+    }
+
+}
+
+//4
+contract Q4 {
+    struct Student{
+        string name;
+        uint number;
+        string[] classes;
+    }
+    
+
+     Student[] public students;
+}
+
+//5
+contract Q5 {
+    function tri(uint _n) public pure returns(string memory) {
+         if(_n >= 1 && _n <= 3) {
+            return "_n **2";
+        } else if(_n >= 4 && _n <= 6) {
+            return "_n * 2";
+        } else if (_n >= 7 && _n <= 9) {
+            return "_n % 3";
+        }
+
+    }
+}
+
+//6
+contract Q6 {
+    uint[] numbers;
+
+    function arrayFillToNine() public {
+        for (uint i=0; i < 9; i++) {
+            numbers.push(i);
+        }
+    }
+
+    function getNumbers() public view returns(uint[] memory) {
+        return numbers;
+    }
+
+}
+
+//7
+contract Q7 {
+    uint[] numbers;
+
+    function arrayFillToFive() public {
+        for (uint i=0; i < 5; i++) {
+            numbers.push(i);
+        }
+    }
+
+    function getNumbers() public view returns (uint result) {
+        for (uint i =0; i < numbers.length; i++) {
+            result += numbers[i];
+        }
+        return result;
+    }
+
+}
+
+//8
+contract Q8 {
+    function returnABC(uint _n) public pure returns(string memory) {
+        if (_n >= 1 && _n <= 10) {
+            return "A";
+        } else if (_n >= 11 && _n <= 20) {
+            return "B";
+        } else if (_n >= 21 && _n <= 30) {
+            return "C";
+        } else {
+            return "Error"
+        }
+
+    }
+
+}
+
+//9
+contract Q9 {
+    function stringToBytes(string memory _s) public pure returns (bytes memory) {
+        return bytes(_s) ;
+    }
+
+}
+
+//10
+contract Q10 {
+    uint[] numbers;
+
+    function pushArrayNumbers(uint _n) public {
+        numbers.push(_n);
+    }
+
+    function popArrayNumbers(uint _n) public {
+        numbers.pop();
+    }
+
+    function getNumbers(uint _n) public {
+        return numbers[_n-1];
+    }
+}
+
+
+  
