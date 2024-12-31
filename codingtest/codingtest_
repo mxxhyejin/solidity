@@ -1,1 +1,77 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract q1 {
+    struct student {
+        //이름,번호,점수,학점,수업
+
+        string name;
+        uint number;
+        uint score;
+        string grade;
+        string[] classes;
+        bool PF;
+
+    }
+
+    constructor() {
+        addStudent("Alice", 1, 85);
+        addStudent("Bob", 2, 75);
+        addStudent("Charlie", 3, 60);
+        addStudent("Dwayne", 4, 90);
+        addStudent("Ellen", 5, 65);
+        addStudent("Fitz", 6, 50);
+        addStudent("Garret", 7, 80);
+        addStudent("Hubert", 8, 90);
+        addStudent("Isabel", 9, 100);
+        addStudent("Jane", 10, 70);
+    }
+
+    student[] private students;
+
+    function studentNumber(uint _i) public view returns (student memory) {
+        for (uint i = 0; i < students.length; i++) {
+            if (students[i].studentNumber == student number) {
+                return students[i];
+            }
+        }
+
+        return();
+    }
+
+    function studentName(string memory name) public view returns (student memory) {
+        for  (uint i = 0; i < students.length; i++)  {
+            if (keccak256(abi.encodePacked(students[i].name)) == keccak256(abi.encodePacked(name))) {
+                return students[i];
+            }
+        }
+
+        return();
+    }
+
+    function studentScore(string memory name) public view returns (uint) {
+        for (uint i = 0; i < students.length; i++) {
+            if (keccak256(abi.encodePacked(students[i].name)) == keccak256(abi.encodePacked(name))) {
+                return students[i].score;
+            }
+        }
+
+        return();
+    }
+
+    function getTotalNumber() public view returns (uint) {
+        return students.length;
+    }
+
+    function getTotalInfo() public view returns (student[] memory) {
+        return students;
+    }
+
+    function calculateScore() public view returns (uint) {
+        
+    }
+}
+
+
 
