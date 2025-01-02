@@ -1,0 +1,54 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract q2 {
+    struct Student {
+        uint number;
+        string name;
+        uint score;
+    }
+
+    Student[] public students;
+//가장 점수가 낮은 사람의 정보 
+    function getStudent() public view returns (uint _number, string memory _name, uint _score) {
+       uint min = type(uint).max;
+
+       for (uint i = 0; i < students. length; i++ ) {
+        if (students[i].score <= min ) {
+             min = students[i];
+        }
+       }
+
+       Students memory student = students[lowestScore];
+       returns (students[i].number, students[i].name, students[i].score);
+    }
+
+    //총 점수 합계
+
+    function getTotalScore() public view returns (uint _score) {
+        for (uint i = 0; i < students.length; i++) {
+            totalScore = students[i].score;
+        }
+        return totalScore;
+    }
+
+    //총 점수 평균
+
+    function getAverageScore() public view returns (uint _score) {
+
+    }
+
+    //특정학생 숫자로 반환
+
+    function getStudentBynumber(uint _number) public view returns ( uint, string memory, uint) {
+        for (uint i =0; i < students.length; i++) {
+            if (students[i].number = _students) {
+                return (students[i].number, students[i].name, students[i].score);
+            }
+        }
+        return students[i];
+
+    
+    }
+}
