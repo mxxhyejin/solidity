@@ -1,0 +1,55 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+//uint 형이 들어가는 array를 선언하고, 짝수만 들어갈 수 있게 걸러주는 함수를 구현하세요.
+contract q1 {
+    uint[] uintnumbers;
+
+    function filter(uint _number) public  {
+        require (_number % 2 ==0, ("odd numbers are not allowed") );
+        evenArray.push(_number);
+    } 
+
+}
+
+//숫자 3개를 더해주는 함수, 곱해주는 함수 그리고 순서에 따라서 a*b+c를 반환해주는 함수 3개를 각각 구현하세요.
+contract q2{
+    function addNumbers(uint _a, uint _b, uint _c) public pure returns (uint) {
+        return _a + _b + _c;
+    }
+
+    function multiplyNumbers(uint _a, uint _b, uint _c) public pure returns (uint) {
+         return _a * _b * _c;
+    }
+
+    function returnNumbers(uint _a, uint _b, uint _c) public pure returns (uint) {
+        return _a * _b + _c;
+    }
+}
+
+//3의 배수라면 “A”를, 나머지가 1이 있다면 “B”를, 나머지가 2가 있다면 “C”를 반환하는 함수를 구현하세요.
+contract q3{
+    function filterNumber(uint _number) public pure returns (string memory) {
+         if (number % 3 == 0) {
+            return "A";
+        } else if (number % 3 == 1) {
+            return "B";
+        } else if (number % 3 == 2) {
+            return "C";
+        }
+        
+    }
+}
+
+//학번, 이름, 듣는 수험 목록을 포함한 학생 구조체를 선언하고 학생들을 관리할 수 있는 array를 구현하세요. array에 학생을 넣는 함수도 구현하는데 학생들의 학번은 1번부터 순서대로 2,3,4,5 자동 순차적으로 증가하는 기능도 같이 구현하세요.
+contract q4{
+    struct Student {
+        uint number;
+        string name;
+        string[] classes;
+    }
+
+    Student[] students;
+    
+}
