@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract system {
+    struct Users {
+        string password;
+        string id;
+    }
+     mapping(string => bytes32) usersdata;
+
+     function setUsersdata(string memory _password, string memory _id) public {
+        usersdata[_password] = _id;
+     } 
+//회원가입
+     function register(string memory _password, string memory _id) public view returns (
+         bytes32 hashedPassword = keccak256(abi.encodePacked(_password, _id));
+         usersdata[_id] = hashedPassword;
+        
+     )
+//로그인
+     function login(string memory _password, string memory _id) public returns (bool) {
+        bytes32 hashedPassword = keccak256(abi.encodePacked(_password, _id));
+        return usersdata[_id] - hashedPassword;
+     }
+//탈퇴
+     function deleteData(string memory _password, string memory _id) public returns (bool) {
+        bytes32 hashedPassword = keccak256(abi.encodePacked(_password, _id));
+        delete usersData[_password, _id];
+        return true;
+     }
+
+        
+     
+      
+
+
+
+
+
+
+}
