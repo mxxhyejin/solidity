@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract game {
+    struct User {
+        uint number;
+        string name;
+        address wallet;
+        uint balance;
+        uint score;
+
+    }
+
+    function UserInfo(uint _id) public view returns (uint, string memory, address, uint, uint ) {
+        return (user.number, user.name, user.wallet, user.balance, user.score);
+
+    }
+
+    function wallet(address payable _rec) public {
+        _rec.transfer(0.1 ether);
+    } 
+
+    function member() public view returns {
+        return(room.length =< 4, "Room is full");
+        if (room.length == 4 ) {
+            return clearRoom();
+        }
+
+    }
+
+    function score(uint) public {
+        uint;
+        score[0] = 4;
+        score[1] = 3;
+        score[2] = 2;
+        score[3] = 1;
+
+        for (uint i = 0; i < room.length; i++) {
+            users[user].score += scores[i];
+        }
+    }
+}
