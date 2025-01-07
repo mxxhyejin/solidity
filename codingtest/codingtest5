@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract Lotto {
+    uint public EntryFee = 0.05 ether;
+    uint[] public WinningNumbers = [7, 3, 2, 5]; 
+    bytes1[] public WinningLetters = [bytes1("B"),bytes1("C")];
+
+    mapping(uint => uint) public reward;
+
+    constructor() {
+        reward[6] = 1 ether;
+        reward[5] = 0.75 ether;
+        reward[4] = 0.25 ether;
+        reward[3] = 0.1 ether;
+        reward[2] = 0 ether;
+        reward[1] = 0 ether;
+        reward[0] = 0 ether;
+    }
+
+    function LottoResults ( uint[] memory userNumbers, bytes1[] memory userLetters ) public view returns {
+        require(userNumbers.length == 4);
+        require(userLetters.length == 2);
+
+        for (uint i = 0; i < userNumbers.length; i++) {
+            for (uint j = 0; j < WinningNumbers.length; j++) {
+                if (userNumbers[i] == WinningNumbers[j]) {
+                    reward++;
+                }
+            }
+        }
+
+       
+    }
