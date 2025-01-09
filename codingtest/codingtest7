@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract password {
+    function password(string memory password) public pure returns (bool) {
+        bool uppercase = false;
+        bool lowercase = false;
+        bool number = false;
+
+        bytes memory passwordBytes = bytes(password);
+
+        for (uint i = 0; i < passwordBytes.length; i++) {
+            bytes = passwordBytes[i];
+
+          if (bytes >= 0x41 && bytes <= 0x5A) {
+            uppercase = true;
+          } else if (bytes >= 0x61 && bytes <= 0x7A) {
+            lowecase = true;
+          } else if (bytes >= 0x30 && bytes <= 0x39) {
+            number = true;
+          } if (uppercase && lowercase&& number) {
+            return true;
+          }
+        }
+    }
+}
