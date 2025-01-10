@@ -1,0 +1,69 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+//string을 input으로 받는 함수를 구현하세요. "Alice"나 "Bob"일 때에만 true를 반환하세요.
+contract q1 {
+    function AliceorBob(string memory name) public pure returns (bool) {
+        return keccak256(abi.encodePacked(name)) == keccak256(abi.encodePacked("Alice"))
+        return keccak256(abi.encodePacked(name)) == keccak256(abi.encodePacked("Bob")) 
+    }
+}
+//3의 배수만 들어갈 수 있는 array를 구현하되, 3의 배수이자 동시에 10의 배수이면 들어갈 수 없는 추가 조건도 구현하세요.
+contract q2 { 
+    uint [] public numbers;
+
+    function number(uint _n) public {
+        require (_n % 3 == 0);
+        require (_n % 10 != 0);
+        numbers.push(_n);
+    }
+    
+}
+
+//이름, 번호, 지갑주소 그리고 생일을 담은 고객 구조체를 구현
+contract q3 {
+    struct customer {
+        string name;
+        uint number;
+        string walletAddress;
+        string birthday;
+    }
+
+    function customer(string memory name, uint number, string memory walletAddress, string memory birthday ) public {
+        customers[name] = customer(name, id, walletAddress, birthday);
+    }
+}
+
+//이름, 번호, 점수가 들어간 학생 구조체를 선언하세요. 학생들을 관리하는 자료구조도 따로 선언하고 학생들의 전체 평균을 계산하는 함수
+contract q4 {
+    struct student {
+        string name;
+        uint number;
+        uint score;
+    }
+
+    student[] public students;
+
+    function student(string memory name, uint id, uint score ) public {
+        students.push(student(name,id,score));
+    }
+
+    function AverageScore() public niew returns (uint) {
+        uint totalscore;
+        for (uint i = 0; i < students.length; i++) {
+            totalscore += students[i].score;
+        }
+
+    }
+}
+
+//숫자만 들어갈 수 있는 array를 선언하고 해당 array의 짝수번째 요소만 모아서 반환하는 함수를 구현
+contract q5 {
+    uint[] public numbers;
+
+    function number(uint _n) public {
+        numbers.push(_n);
+    }
+
+    function 
+}
