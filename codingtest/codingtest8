@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract App {
+    struct car {
+        uint speed;
+        uint fuel;
+        bool engine;
+    } 
+
+    function acclerate() public {
+        require(car.fuel > 30, "Unable to use the accelerator.");
+        require(car.speed < 70, "Unable to use the accelerator.");
+
+        car.speed += 10;
+        car.fuel -= 20;
+        
+    }
+
+    function refuel() public payable {
+        require(msg.value == 1 ether, "The refueling fee is 1 ETH.");
+
+        car.fuel = 100;
+    }
+
+    function brake() public {
+        require(car.speed > 0, "Unable to use the brake.");
+
+        car.speed -= 10;
+        car.fuel -= 10;
+    }
+
+    function turnOffEngine() public {
+        require(car.speed == 0, "When the speed reaches 0, the engine turns off.");
+    }
+
+    function turnOnEngine() public {
+        require(car.engineOn, "When the engine is started, it is set to a stationary state." );
+    }
+   
+}
