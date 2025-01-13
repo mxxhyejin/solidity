@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract App {
+    struct Bank {
+        string name;
+        mapping(address => uint) balances;
+    
+    }
+
+    struct User {
+        address userAddress;
+        bool Registered;
+    }
+
+    function tax(address _user, address _bank) public view returns (uint) {
+        return (banks[_bank].balances[_user]*1)/100;
+    }
+
+    function register(address _bank) public {
+        require (users[msg.sender].Registered, "User already registered.");
+        require(bytes(banks[_bank].name).length > 0, "Bank does not exist.");
+    }
+
+    function deposit(address _bank) public payable RegisteredUser(msg.sender) {
+        require(bytes(bank[_bank].name).length > 0, "Bank does not exist.");
+
+        Deposit(msg.sender, _bank, msg.value);
+    }
+
+    function withdraw(address _bank) public RegisteredUser(msg.sender) {
+        sufficientBalance(_bank, msg.sender, _amount)
+    }
+
+    function transfer ( address _frombank, address _tobank, uint amount) public RegisteredUser(msg.sender) sufficientBalance(_fromBank, msg.sender, _amount) {
+        
+    }
+
+
+}
