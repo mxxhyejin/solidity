@@ -1,0 +1,101 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract q1 {
+    uint[4] public numbers;
+
+
+    function addNumber(uint _n) public {
+        for (uint i = 0; i < numbers.length; i++) {
+            if (numbers[i] == 0 ) {
+                numbers[i] = _n;
+            }
+        }   
+     
+    } 
+    
+    function reset() public {
+        for (uint i = 0; i < numbers.length; i++) {
+            numbers[i] = 0;
+        }
+    }
+    
+}
+
+contract q2 {
+    struct Customer {
+        string name;
+        uint number;
+        address wallet;
+    }
+
+    Customer[] public customer;
+
+    function NewCustomer(string memory _name, uint _number, address _wallet) public {
+        require(bytes(_name).length >= 5, "Name must be at least 5 characters");
+        Customers.push(Customer(_name, _number, _wallet));
+    }
+}
+
+contract q3 {
+    mapping(address => uint) public balances;
+    function depositEther() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdrawEther(uint amount) public {
+        balances[msg.sender] -= amount;
+        payable(msg.sender).transfer(amount);
+    }
+}
+
+contract q4 {
+    string[] public stringArray;
+
+    function Array(string memory) public {
+        require(bytes(str).length >= 4, "String must be at least 4 characters");
+        stringArray.push();
+    }
+}
+
+contract q5 {
+    uint[] public Under100Array;
+
+    function Array(uint _n) public {
+        require(_n <= 100, "Number must be under 100");
+        Under100Array.push(_n);
+    }
+}
+
+contract q6 {
+    uint[] public Array;
+
+    function Array(uint _n) public {
+        require((_n % 3 == 0 || num % 10 == 0 ) && _n < 50);
+
+        Array.push(_n);
+    }
+}
+
+contract q7 {
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only owner can call this function");
+    }
+
+    function changeOwner(address newOwner) public onlyOwner {
+        owner = newOwner;
+    }
+}
+
+contract q8 {
+    function addNumbers(uint _a, uint _b) public pure returns (uint) {
+        return _a + _b;
+    }
+}
