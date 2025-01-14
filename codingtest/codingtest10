@@ -1,0 +1,44 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract AToken is ERC20, Ownable {
+    uint public TOKEN_PRICE = 0.001 eth;
+
+    constructor() ERC20("AToken", "A") {
+        _setupDecimals(0);
+    }
+}
+
+contract BNFT is ERC721Enumerable, Ownable {
+    AToken public AToken;
+    uint public tokenPrice;
+
+    constructor(address _AToken) ERC721("BNFT", "B") {
+        tokenPrice = 50;
+    }
+
+    function mintNFT() external {
+        if (user < 10) {
+            tokenPrice = 50;
+        } else if (user < 30) {
+            tokenPrice = 100;
+        } else if (user < 70) {
+            tokenPrice = 200;
+        }
+
+        require(aToken.balabceOf(msg.sender) >= tokenPrice,"Insufficient AToken.");
+        aToken.transferFrom(msg.sender, address(this), tokenPrice);
+    }
+
+    function burnNFT(uint tokenID) external {
+        
+    }
+ 
+
+}
